@@ -1,5 +1,5 @@
 //
-// With credits to https://github.com/eugeneware/ffmpeg-static
+// With credits to https://github.com/joshwnj/ffprobe-static
 //
 var os = require('os');
 var path = require('path');
@@ -11,7 +11,7 @@ if (platform !== 'darwin' && platform !=='linux' && platform !== 'win32') {
 }
 
 var arch = os.arch();
-if (platform === 'darwin' && arch !== 'x64') {
+if (platform === 'darwin' && ! ['x64', 'arm64'].includes(arch)) {
   console.error('Unsupported architecture.');
   process.exit(1);
 }
